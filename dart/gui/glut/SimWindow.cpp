@@ -490,8 +490,6 @@ void SimWindow::drawShape(
   {
     const auto& mesh = static_cast<const MeshShape*>(shape);
 
-    glDisable(GL_COLOR_MATERIAL); // Use mesh colors to draw
-
     if (mesh->getDisplayList())
       mRI->drawList(mesh->getDisplayList());
     else
