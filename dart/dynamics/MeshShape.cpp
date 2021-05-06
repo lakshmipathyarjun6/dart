@@ -136,7 +136,8 @@ MeshShape::MeshShape(
     mDisplayList(0),
     mColorMode(MATERIAL_COLOR),
     mAlphaMode(BLEND),
-    mColorIndex(0)
+    mColorIndex(0),
+    mManipulationStep(0)
 {
   setMesh(mesh, path, std::move(resourceRetriever));
   setScale(scale);
@@ -298,6 +299,16 @@ int MeshShape::getDisplayList() const
 void MeshShape::setDisplayList(int index)
 {
   mDisplayList = index;
+}
+
+void MeshShape::setTraceVertices(Eigen::MatrixXi& mat)
+{
+  mTraceVertices = mat;
+}
+
+void MeshShape::setManipulationStep(int step)
+{
+  mManipulationStep = step;
 }
 
 //==============================================================================
