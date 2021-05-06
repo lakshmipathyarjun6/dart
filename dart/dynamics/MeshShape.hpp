@@ -150,6 +150,10 @@ public:
 
   int getDisplayList() const;
 
+  int getManipulationStep() const;
+
+  Eigen::MatrixXi getTraceVertices() const;
+
   void setDisplayList(int index);
 
   void setTraceVertices(Eigen::MatrixXi& mat);
