@@ -296,6 +296,18 @@ int MeshShape::getDisplayList() const
 }
 
 //==============================================================================
+int MeshShape::getManipulationStep() const
+{
+  return mManipulationStep;
+}
+
+//==============================================================================
+Eigen::MatrixXi MeshShape::getTraceVertices() const
+{
+  return mTraceVertices;
+}
+
+//==============================================================================
 void MeshShape::setDisplayList(int index)
 {
   mDisplayList = index;
