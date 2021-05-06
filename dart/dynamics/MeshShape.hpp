@@ -152,6 +152,10 @@ public:
 
   void setDisplayList(int index);
 
+  void setTraceVertices(Eigen::MatrixXi& mat);
+
+  void setManipulationStep(int step);
+
   static const aiScene* loadMesh(const std::string& filePath);
 
   static const aiScene* loadMesh(
@@ -195,6 +199,12 @@ protected:
 
   /// Specifies which color index should be used when mColorMode is COLOR_INDEX
   int mColorIndex;
+
+  /// Time indexed vertex indices during manipulation
+  Eigen::MatrixXi mTraceVertices;
+
+  /// Manipulation step - separate from simulation time
+  int mManipulationStep;
 };
 
 } // namespace dynamics
