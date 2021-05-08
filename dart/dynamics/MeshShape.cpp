@@ -302,7 +302,7 @@ int MeshShape::getManipulationStep() const
 }
 
 //==============================================================================
-Eigen::MatrixXi MeshShape::getTraceVertices() const
+std::vector<Eigen::MatrixXi> MeshShape::getTraceVertices() const
 {
   return mTraceVertices;
 }
@@ -313,9 +313,9 @@ void MeshShape::setDisplayList(int index)
   mDisplayList = index;
 }
 
-void MeshShape::setTraceVertices(Eigen::MatrixXi& mat)
+void MeshShape::addTraceVertices(Eigen::MatrixXi& mat)
 {
-  mTraceVertices = mat;
+  mTraceVertices.push_back(mat);
 }
 
 void MeshShape::setManipulationStep(int step)
