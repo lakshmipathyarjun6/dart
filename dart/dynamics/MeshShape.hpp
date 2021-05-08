@@ -152,11 +152,11 @@ public:
 
   int getManipulationStep() const;
 
-  Eigen::MatrixXi getTraceVertices() const;
+  std::vector<Eigen::MatrixXi> getTraceVertices() const;
 
   void setDisplayList(int index);
 
-  void setTraceVertices(Eigen::MatrixXi& mat);
+  void addTraceVertices(Eigen::MatrixXi& mat);
 
   void setManipulationStep(int step);
 
@@ -205,7 +205,7 @@ protected:
   int mColorIndex;
 
   /// Time indexed vertex indices during manipulation
-  Eigen::MatrixXi mTraceVertices;
+  std::vector<Eigen::MatrixXi> mTraceVertices;
 
   /// Manipulation step - separate from simulation time
   int mManipulationStep;
