@@ -30,9 +30,9 @@
  *   POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <memory>
-
 #include "dart/optimization/nlopt/NloptSolver.hpp"
+
+#include <memory>
 
 #include <Eigen/Dense>
 
@@ -182,8 +182,17 @@ bool NloptSolver::solve()
   nlopt::result result = mOpt->optimize(mX, mMinF);
 
   // If the result is not in this range, then it failed
-  if (!(nlopt::SUCCESS <= result && result <= nlopt::XTOL_REACHED))
+  if (!(nlopt::SUCCESS <= result && result <= nlopt::MAXTIME_REACHED))
     return false;
+
+  if (result == nlopt::MAXEVAL_REACHED)
+  {
+    std::cout << "NLOPT Warning - maximum number of evaluations exhausted" << std::endl;
+  }
+  else if (result == nlopt::MAXEVAL_REACHED)
+  {
+    std::cout << "NLOPT Warning - maximum amount of time exhausted" << std::endl;
+  }
 
   // Store optimal and optimum values
   problem->setOptimumValue(mMinF);
