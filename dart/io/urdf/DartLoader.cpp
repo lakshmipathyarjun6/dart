@@ -602,8 +602,12 @@ void setMaterial(
     visualAspect->setColor(color);
     auto shapeFrame = visualAspect->getComposite();
     auto shape = shapeFrame->getShape();
+
     if (auto mesh = std::dynamic_pointer_cast<dynamics::MeshShape>(shape))
+    {
       mesh->setColorMode(dynamics::MeshShape::ColorMode::SHAPE_COLOR);
+      mesh->setAlphaMode(dynamics::MeshShape::AlphaMode::SHAPE_ALPHA);
+    }
   }
 }
 
