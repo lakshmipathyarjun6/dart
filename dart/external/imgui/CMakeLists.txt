@@ -6,6 +6,9 @@
 #
 # This file is provided under the "BSD-style" License
 
+# Search all header and source files
+file(GLOB hdrs "*.h")
+
 # TODO(JS): Remove this
 set(DART_BUILD_COMP_external-imgui ON)
 
@@ -48,4 +51,10 @@ dart_add_component(
     ${target_compile_options_private}
   TARGET_COMPILE_DEFINITIONS_PUBLIC
     IMGUI_DISABLE_OBSOLETE_FUNCTIONS
+)
+
+install(
+  FILES ${hdrs}
+  DESTINATION include/${org_name}/${PROJECT_NAME}${DART_MAJOR_VERSION}/${PROJECT_NAME}/external/imgui
+  COMPONENT headers
 )
